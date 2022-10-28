@@ -36,6 +36,17 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def destroy
+
+    logger.debug ("Destruction")
+
+
+    @restaurant = Restaurant.find(params[:id])
+    # @restaurant.destroy
+
+    redirect_to root_path, status: :see_other
+  end
+
   private
 
   def restaurant_params

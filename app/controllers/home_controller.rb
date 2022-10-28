@@ -1,8 +1,6 @@
 class HomeController < ApplicationController
   def index
     @cities = City.all
-    logger.debug ("un truc de ouf #{@cities}")
-
   end
 
   def search

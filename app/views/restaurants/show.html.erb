@@ -3,7 +3,11 @@
     <div class="d-flex justify-content-between">
       <h1><%= @restaurant.name %></h1>
       <div>
+      
+      <%= link_to "Destroy", restaurant_path(@restaurant), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+
       <%= link_to "Modifier", edit_restaurant_path(@restaurant), class: "btn btn-info" %>
+
       </div>
     </div>
     <p><%= @restaurant.description %></p>
