@@ -1,15 +1,13 @@
 <% if @restaurants %>
   <% @restaurants.each do |restaurant| %>
-    <div class="card" style="width: 18rem;">
+    <div class="card col-5 mb-2">
       <img src="/images/restaurant.jpg" class="card-img-top" alt="image restaurant">
       <div class="card-body">
-        <p class="card-text"><%= restaurant.name %></p>
-        <div class="d-flex justify-content-end">
-        <a class="btn btn-info" href="<%= restaurant_path(restaurant) %>"> Voir </a>
-        </div>
+        <p class="card-text"><%= restaurant.name.upcase %></p>
+        <a class="btn btn-info" href="<%= restaurant_path(restaurant) %>"> Plus d'information </a>
       </div>
     </div>
   <% end %>
 <% else %>
+  <div> pas de restaurant </div>
 <% end %>
-<div> pas de restaurant </div>

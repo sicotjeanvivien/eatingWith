@@ -1,16 +1,22 @@
-<h1><%= @restaurant.name %></h1>
-
-<p><%= @restaurant.description %></p>
-
-<ul>
-  <li><%= link_to "Edit", edit_restaurant_path(@restaurant) %></li>
-</ul>
-
-<h2>Comments</h2>
-
-<%= debug @comment %>
-
-<%= render @restaurant.comments %>
-
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+<div class="row mt-3">
+  <div class="col-6">
+    <div class="d-flex justify-content-between">
+      <h1><%= @restaurant.name %></h1>
+      <div>
+      <%= link_to "Modifier", edit_restaurant_path(@restaurant), class: "btn btn-info" %>
+      </div>
+    </div>
+    <p><%= @restaurant.description %></p>
+  </div>
+  <div class="col-6">
+    <img src="/images/restaurant.jpg" class="img-fluid" alt="image restaurant">
+  </div>
+</div>
+<div class="row mb-5">
+  <h2>Commentaires</h2>
+  <%= render @restaurant.comments %>
+</div>
+<div class="row bg-light mb-3">
+  <h2>Ajouter un commentaire</h2>
+  <%= render 'comments/form' %>
+</div>

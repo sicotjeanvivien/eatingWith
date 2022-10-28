@@ -1,11 +1,15 @@
-<div class="card">
-  <div class="card-header">
-    Quote
-  </div>
+<div class="card" >
   <div class="card-body">
     <blockquote class="blockquote mb-0">
-      <p><%= comment.comment %></p>
+      <p>"<%= comment.comment %>"</p>
       <footer class="blockquote-footer"><%= comment.commenter %></footer>
     </blockquote>
+    <div class="progress">
+      <div class="progress-bar bg-warning" role="progressbar"  aria-label="Info example" 
+          style="width: <%= comment.note * 20 %>%" 
+          aria-valuenow="<%= comment.note * 20 %>" 
+          aria-valuemin="0" aria-valuemax="100">
+      </div>
+    </div>
   </div>
 </div>

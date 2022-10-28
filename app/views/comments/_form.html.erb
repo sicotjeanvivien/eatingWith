@@ -1,23 +1,26 @@
-<%= form_with model: [ @restaurant, @restaurant.comments.build ] do |form| %>
-  <div>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
+<%= form_with model: [ @restaurant, @restaurant.comments.build ], class: "row" do |form| %>
+  <div class="mb-3 col-4">
+    <%= form.label "Pseudo" %><br>
+    <%= form.text_field :commenter, class: "form-control"%>
   </div>
-  <div>
-    <%= form.label :comment %><br>
-    <%= form.text_area :comment %>
+  <div class="mb-3 col-6">
+    <h5>Noter</h5>
+    <%= form.label :note, "1", :value => "1", class:"form-check-label" %>
+    <%= form.radio_button :note, 1 , class:"form-check-input"%>
+    <%= form.label :note, "2", :value => "2", class:"form-check-label"   %>
+    <%= form.radio_button :note, 2, class:"form-check-input" %>
+    <%= form.label :note, "3", :value => "3", class:"form-check-label"   %>
+    <%= form.radio_button :note, 3, class:"form-check-input" %>
+    <%= form.label :note, "4", :value => "4", class:"form-check-label"   %>
+    <%= form.radio_button :note, 4, class:"form-check-input" %>
+    <%= form.label :note, "5", :value => "5" , class:"form-check-label"  %>
+    <%= form.radio_button :note, 5, class:"form-check-input" %>
   </div>
-  <div>
-    <%= form.label :note, "1", :value => "1"  %>
-    <%= form.radio_button :note, 1 %>
-    <%= form.label :note, "2", :value => "2"  %>
-    <%= form.radio_button :note, 2 %>
-    <%= form.label :note, "3", :value => "3"  %>
-    <%= form.radio_button :note, 3 %>
-    <%= form.label :note, "4", :value => "4"  %>
-    <%= form.radio_button :note, 4 %>
-    <%= form.label :note, "5", :value => "5"  %>
-    <%= form.radio_button :note, 5 %>
+  <div class="mb-3 col-12">
+    <%= form.label "Commentaire" %><br>
+    <%= form.text_area :comment, class: "form-control" %>
   </div>
-  <%= form.submit %>
+  <div class="mb-3 d-flex justify-content-end">
+    <%= form.submit "Ajouter un commentaire",  class: "btn btn-info" %>
+  </div>
 <% end %>
