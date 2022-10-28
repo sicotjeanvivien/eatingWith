@@ -7,16 +7,15 @@ window.addEventListener('DOMContentLoaded', () => {
 const searchRestaurantByCity = (e) => {
     e.preventDefault();
     let city = e.currentTarget.value;
-    console.log(city);
 
-    let url = new URL("/search/", window.location.origin);
-    url.searchParams.append("city_name", city);
-
-    fetch(url, {
-        method: "GET"
-    }).then(res => res.text()).then(res => {
-        console.log(res);
-        document.querySelector("#js_list_restaurant_fetch").innerHTML = res
-    })
+    if (city) {
+        let url = new URL("/search/", window.location.origin);
+        url.searchParams.append("city_name", city);
+        fetch(url, {
+            method: "GET"
+        }).then(res => res.text()).then(res => {
+            document.querySelector("#js_list_restaurant_fetch").innerHTML = res
+        })
+    }
 
 }
