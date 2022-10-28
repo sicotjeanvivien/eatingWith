@@ -1,0 +1,16 @@
+<h1><%= @restaurant.name %></h1>
+
+<p><%= @restaurant.description %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_restaurant_path(@restaurant) %></li>
+</ul>
+
+<h2>Comments</h2>
+
+<%= debug @comment %>
+
+<%= render @restaurant.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>

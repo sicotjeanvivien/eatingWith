@@ -1,0 +1,19 @@
+<h1 class="text-center">EATING WITH...</h1>
+<div class="row">
+  <p>Les meilleur adresse de votre ville par nos utilisateur</p>
+</div>
+<div class="d-flex justify-content-end">
+  <%= link_to "Ajouter un restaurant", new_restaurant_path, class:"btn btn-info" %>
+</div>
+<div class="row" >
+  <div class="mb-3">
+    <label for="js_search_by_city" class="form-label">Choisir une ville...</label>
+    <select class="form-select" id="js_search_by_city">
+      <option selected>Selectionné une ville</option>
+      <% @cities.each do |city| %>
+        <option value="<%= city.name%>"><%= city.name.capitalize%> </option>
+      <% end %>
+    </select>
+  </div>
+</div>
+<div id="js_list_restaurant_fetch"></div>
