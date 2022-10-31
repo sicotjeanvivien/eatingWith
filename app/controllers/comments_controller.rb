@@ -1,9 +1,7 @@
 class CommentsController < ApplicationController
-
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
 
-    logger.debug ("un truc de ouf #{comment_params}")
     @comment = @restaurant.comments.create(comment_params)
     redirect_to restaurant_path(@restaurant)
   end
@@ -16,8 +14,8 @@ class CommentsController < ApplicationController
   # end
 
   private
-    def comment_params
-      params.require(:comment).permit(:commenter, :comment, :note)
-    end
 
+  def comment_params
+    params.require(:comment).permit(:commenter, :comment, :note)
+  end
 end
