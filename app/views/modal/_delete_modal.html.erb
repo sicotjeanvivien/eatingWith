@@ -1,0 +1,16 @@
+<div id="js_modal" class="modal">
+  <span class="close js_modal_button_show" title="Close Modal">&times;</span>
+  <form class="modal-content" action="/action_page.php">
+    <div class="container">
+      <h1>Supprimer le rstaurant</h1>
+      <p class="text-center">Êtes vous sur?</p>
+      <div class="clearfix d-flex justify-content-around">
+        <div id="js_modal_delete_fetch_error">
+        </div>
+        <input type="hidden" id="csrf_Token" value="" />
+        <button type="button" class="js_modal_button_show btn btn-danger">annuler</button>
+        <button type="button" class="js_modal_delete_fetch btn btn-warning" id="js_modal_delete_fetch" data-id="<%= @restaurant.id%>">Supprimer</button>
+      </div>
+    </div>
+  </form>
+</div>

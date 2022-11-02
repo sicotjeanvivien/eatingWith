@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   def create
-    @restaurant = Restaurant.find(params[:restaurant_id])
+    self::user_is_connect
 
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @comment = @restaurant.comments.create(comment_params)
     redirect_to restaurant_path(@restaurant)
   end

@@ -1,9 +1,6 @@
 class HomeController < ApplicationController
   def index
     @cities = City.all
-
-    logger.debug ("Session : #{session.to_s} \n")
-
   end
 
   def search

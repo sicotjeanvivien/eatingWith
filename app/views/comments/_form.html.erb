@@ -1,8 +1,5 @@
 <%= form_with model: [ @restaurant, @restaurant.comments.build ], class: "row" do |form| %>
-  <div class="mb-3 col-4">
-    <%= form.label "Pseudo" %><br>
-    <%= form.text_field :commenter, class: "form-control"%>
-  </div>
+  <%= form.hidden_field :commenter, value: current_user.username, class: "form-control"%>
   <div class="mb-3 col-6">
     <h5>Noter</h5>
     <%= form.label :note, "1", :value => "1", class:"form-check-label" %>

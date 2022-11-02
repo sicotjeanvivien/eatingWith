@@ -1,0 +1,17 @@
+<div class="col-6">
+  <h2>Se connecter</h2>
+  <p id="notice"><%= notice %></p>
+  <form action="/sign_in" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div></div>
+    <div class='mb-3'>
+      <label for="username">Username</label>
+      <input type="username" class="form-control" id="username" name="user[username]" value="<%= @user.username %>" />
+    </div>
+    <div class='mb-3'>
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="user[password]" />
+    </div>
+    <input type="submit" class="btn btn-info" value="Se connecter">
+  </form>
+</div>

@@ -9,12 +9,13 @@ class RestaurantsController < ApplicationController
   end
 
   def new
+    self::user_is_connect
     @restaurant = Restaurant.new
   end
 
   def create
+    self::user_is_connect
     @restaurant = Restaurant.new(restaurant_params)
-
     if @restaurant.save
       redirect_to ""
     else
@@ -23,10 +24,12 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
+    self::user_is_connect
     @restaurant = Restaurant.find(params[:id])
   end
 
   def update
+    self::user_is_connect
     @restaurant = Restaurant.find(params[:id])
 
     if @restaurant.update(restaurant_params)
@@ -37,14 +40,12 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-
     logger.debug ("Destruction")
-
-
+    self::user_is_connect
     @restaurant = Restaurant.find(params[:id])
-    # @restaurant.destroy
+    @restaurant.destroy
 
-    redirect_to root_path, status: :see_other
+    render json: [error: true, message: "<div class='alert alert-danger' role='alert'>Error server </div>"]
   end
 
   private
