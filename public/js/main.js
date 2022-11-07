@@ -47,13 +47,14 @@ const updateMap = (GpsCity, restaurants) => {
     document.mapInstance.flyTo(GpsCity);
 
     restaurants.map((elem, value) => {
+        console.log(elem);
         L.marker([elem.latitude, elem.longitude]).bindPopup("<b> " + elem.name + "</b>.").openPopup().addTo(document.mapInstance);
         renderView += `
         <div class="card col-3">
         <img src="/images/restaurant.jpg" class="card-img-top" alt="image restaurant">
         <div class="card-body">
           <p class="card-text">` + elem.name + `</p>
-          <a class="btn btn-info" href="/restaurant/" ` + elem.id + `> Plus d'information </a>
+          <a class="btn btn-info" href="/restaurant/ ` + elem.id + `"> Plus d'information </a>
         </div>
       </div>
         `;
