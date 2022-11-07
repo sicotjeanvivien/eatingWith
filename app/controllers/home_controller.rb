@@ -4,10 +4,10 @@ class HomeController < ApplicationController
   end
 
   def search
-    city = City.find_by("name = :name", { name: params["city_name"].to_s.downcase })
+    city = City.find_by(name: params["city_name"].to_s.downcase)
     if city
-      @restaurants = Restaurant.joins(:city).where("city_id = :city", { city: city.id })
+      @restaurants = Restaurant.where(city_id: city.id)  
     end
-    render json:  {restaurants: @restaurants, city: city}
+    render json: { restaurants: @restaurants, city: city }
   end
 end
