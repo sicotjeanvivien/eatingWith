@@ -54,7 +54,7 @@ const updateMap = (GpsCity, restaurants) => {
         <img src="/images/restaurant.jpg" class="card-img-top" alt="image restaurant">
         <div class="card-body">
           <p class="card-text">` + elem.name + `</p>
-          <a class="btn btn-info" href="/restaurant/` + elem.id + `"> Plus d'information </a>
+          <a class="btn btn-info" href="/restaurants/` + elem.id + `"> Plus d'information </a>
         </div>
       </div>
         `;
