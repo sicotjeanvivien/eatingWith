@@ -40,7 +40,6 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-    logger.debug ("Destruction")
     self::user_is_connect
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy

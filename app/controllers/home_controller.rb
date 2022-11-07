@@ -8,6 +8,6 @@ class HomeController < ApplicationController
     if city
       @restaurants = Restaurant.joins(:city).where("city_id = :city", { city: city.id })
     end
-    render layout: false, template: "/restaurants/_list"
+    render json:  {restaurants: @restaurants, city: city}
   end
 end
