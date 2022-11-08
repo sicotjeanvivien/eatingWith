@@ -1,17 +1,19 @@
 window.addEventListener('DOMContentLoaded', () => {
+
     document.querySelector("#js_search_by_city") && document.querySelector("#js_search_by_city").addEventListener("change", e => searchRestaurantByCity(e));
+
     document.querySelectorAll(".js_modal_button_show").forEach(element => {
         element.addEventListener("click", e => toggleShowModal(e));
     });
+
     document.querySelector("#js_modal_delete_fetch") && document.querySelector("#js_modal_delete_fetch").addEventListener("click", e => fetchDelete(e));
 
-
-
-    initMap(['48.8588897', '2.320041']);
-
+    document.querySelector("#map") && initMap(['48.8588897', '2.320041']);
 
 }, false);
 
+
+//HOME
 const searchRestaurantByCity = (e) => {
     e.preventDefault();
     let city = e.currentTarget.value;
@@ -38,7 +40,6 @@ const initMap = (GpsCity) => {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(document.mapInstance);
 }
-
 const updateMap = (GpsCity, restaurants) => {
     let renderView = "";
     document.mapInstance.eachLayer((layer) => {
@@ -64,6 +65,21 @@ const updateMap = (GpsCity, restaurants) => {
         maxZoom: 25,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(document.mapInstance);
+}
+
+// ADD RESTAURANT
+
+const searchGeo = (e) => {
+    e.preventDefault();
+    let value = e.currentTarget.value;
+    let words = value.replace(" ", "+");
+    console.log(words);
+    if (value.length > 5) {
+        fetch("https://api-adresse.data.gouv.fr/search/?q="+ words).then(res => res.json()).then(res => {
+            console.log(res);
+        })
+
+    }
 }
 
 
